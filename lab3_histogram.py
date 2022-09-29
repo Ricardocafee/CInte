@@ -8,6 +8,8 @@ import datetime
 df = pd.read_csv('DCOILBRENTEUv2.csv')
 df.plot(x='DATE', y='DCOILBRENTEU')
 
+## tb dá sem loop. FASTER!!!
+df['VarDD'] = df.DCOILBRENTEU.diff()
 
 def previousVariation():
     df_previous = df
@@ -23,4 +25,8 @@ def previousVariation():
 
 
 previousVariation()
+
+print(df[:])
+
 plt.show()
+
